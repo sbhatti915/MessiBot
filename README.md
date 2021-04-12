@@ -11,27 +11,30 @@ Create a workspace:
     
 Add all Repositories:
 
+    $ git clone https://github.com/sbhatti915/messibot.git
+    
+    $ cd messibot
+    
     $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
     
     $ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
     
     $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+
+Rebuild Packages:
+
+    $ cd ../..
     
-    $ git clone
-
-Download the necessary apriltag meshes:
-
-    $ git clone https://github.com/sharif1093/apriltag_gazebo_model_generator.git
-
-    $ cd ~/apriltag_gazebo_model_generator/ar_tags/scripts
-
-    $ ./generate_markers_model.py -i ../36h11_sample -s 200 -w 50
-
-
-Re-build the packages to configure the workspace:
-
-`$ catkin_make`
+    $ catkin_make
 
 Add the workspace to your ROS environment:
 
-`$ . ~/guide/devel/setup.bash`
+    $ . ~/catkin_ws/devel/setup.bash
+    
+## Usage
+Launch turtlebot in an empty world with:
+
+    $ export TURTLEBOT3_MODEL=waffle
+    
+    $ roslaunch messibot empty_world.launch
+    
