@@ -2049,10 +2049,10 @@
       <pose frame=''>-1.95993 2.43693 0 0 -0 3.14159</pose>
     </model>
     <state world_name='default'>
-      <sim_time>2020 506000000</sim_time>
-      <real_time>102 196610584</real_time>
-      <wall_time>1618576366 830927232</wall_time>
-      <iterations>101780</iterations>
+      <sim_time>2179 981000000</sim_time>
+      <real_time>177 932442050</real_time>
+      <wall_time>1618601045 33812752</wall_time>
+      <iterations>159475</iterations>
       <model name='RoboCup 14 SPL Field'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -2327,24 +2327,24 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='RoboCup_SPL_Ball'>
-        <pose frame=''>-1.02959 -0.270849 0.0425 0 -0 0</pose>
+      <model name='RoboCup SPL Ball'>
+        <pose frame=''>-1.10405 -0.006855 0.0425 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='ball'>
-          <pose frame=''>-1.02959 -0.270849 0.0425 0 -0 0</pose>
+          <pose frame=''>-1.10405 -0.006855 0.0425 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='RoboCup_SPL_Ball_0'>
-        <pose frame=''>-1.57807 -0.250923 0.0425 0 -0 0</pose>
+      <model name='RoboCup SPL Ball_0'>
+        <pose frame=''>-1.39207 0.120074 0.0425 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='ball'>
-          <pose frame=''>-1.57807 -0.250923 0.0425 0 -0 0</pose>
+          <pose frame=''>-1.39207 0.120074 0.0425 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 19.6 0 -0 0</acceleration>
-          <wrench>0 0 2e-05 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -2358,20 +2358,20 @@
         </link>
       </model>
       <model name='soccer_ball'>
-        <pose frame=''>-1.01276 0.46549 0.11 0 -0 0</pose>
+        <pose frame=''>-1.07347 0.281051 0.05 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='soccer_ball_link'>
-          <pose frame=''>-1.01276 0.46549 0.11 0 -0 0</pose>
+          <pose frame=''>-1.07347 0.281051 0.05 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='soccer_ball_0'>
-        <pose frame=''>-1.52828 0.299225 0.11 0 -0 0</pose>
+        <pose frame=''>-1.41362 0.412805 0.05 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='soccer_ball_link'>
-          <pose frame=''>-1.52828 0.299225 0.11 0 -0 0</pose>
+          <pose frame=''>-1.41362 0.412805 0.05 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -2423,7 +2423,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-2.46965 0.818673 1.85712 0 0.9753 -0.647575</pose>
+        <pose frame=''>-3.28852 1.25882 0.474601 0 0.1513 -0.575576</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -2853,6 +2853,7 @@
       <pose frame=''>5.2 0 0 0 -0 0</pose>
     </model>
     <model name='soccer_ball'>
+      <static>0</static>
       <link name='soccer_ball_link'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
@@ -2867,10 +2868,29 @@
           </inertia>
           <pose frame=''>0 0 0 0 -0 0</pose>
         </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.04</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode>
+                <mu>0.1</mu>
+                <mu2>0.4</mu2>
+              </ode>  
+            </friction>
+          </surface>
+        </collision>
         <visual name='visual'>
           <geometry>
             <mesh>
@@ -2878,174 +2898,15 @@
               <uri>model://robocup_3Dsim_ball/meshes/ball.dae</uri>
             </mesh>
           </geometry>
-          <material>
-            <shader type='pixel'>
-              <normal_map>__default__</normal_map>
-            </shader>
-          </material>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <transparency>0</transparency>
-          <cast_shadows>1</cast_shadows>
         </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <sphere>
-              <radius>0.1</radius>
-            </sphere>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <fdir1>0 0 0</fdir1>
-                <slip1>0</slip1>
-                <slip2>0</slip2>
-              </ode>
-              <torsional>
-                <coefficient>1</coefficient>
-                <patch_radius>0</patch_radius>
-                <surface_radius>0</surface_radius>
-                <use_patch_radius>1</use_patch_radius>
-                <ode>
-                  <slip>0</slip>
-                </ode>
-              </torsional>
-            </friction>
-            <bounce>
-              <restitution_coefficient>0</restitution_coefficient>
-              <threshold>1e+06</threshold>
-            </bounce>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-              <collide_bitmask>1</collide_bitmask>
-              <ode>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-                <max_vel>0.01</max_vel>
-                <min_depth>0</min_depth>
-              </ode>
-              <bullet>
-                <split_impulse>1</split_impulse>
-                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-              </bullet>
-            </contact>
-          </surface>
-        </collision>
-      </link>
-      <static>0</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-1.01276 0.46549 0 0 -0 0</pose>
-    </model>
-    <model name='RoboCup_SPL_Ball'>
-      <link name='ball'>
-        <inertial>
-          <mass>1e-06</mass>
-          <inertia>
-            <ixx>0</ixx>
-            <iyy>0</iyy>
-            <izz>0</izz>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyz>0</iyz>
-          </inertia>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-        </inertial>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <gravity>1</gravity>
-        <visual name='visual'>
-          <geometry>
-            <sphere>
-              <radius>0.065</radius>
-            </sphere>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/RedBright</name>
-            </script>
-            <shader type='pixel'>
-              <normal_map>__default__</normal_map>
-            </shader>
-          </material>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <transparency>0</transparency>
-          <cast_shadows>1</cast_shadows>
-        </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <sphere>
-              <radius>0.0325</radius>
-            </sphere>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <fdir1>0 0 0</fdir1>
-                <slip1>0</slip1>
-                <slip2>0</slip2>
-              </ode>
-              <torsional>
-                <coefficient>1</coefficient>
-                <patch_radius>0</patch_radius>
-                <surface_radius>0</surface_radius>
-                <use_patch_radius>1</use_patch_radius>
-                <ode>
-                  <slip>0</slip>
-                </ode>
-              </torsional>
-            </friction>
-            <bounce>
-              <restitution_coefficient>0</restitution_coefficient>
-              <threshold>1e+06</threshold>
-            </bounce>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-              <collide_bitmask>1</collide_bitmask>
-              <ode>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-                <max_vel>0.01</max_vel>
-                <min_depth>0</min_depth>
-              </ode>
-              <bullet>
-                <split_impulse>1</split_impulse>
-                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-              </bullet>
-            </contact>
-          </surface>
-        </collision>
       </link>
-      <static>0</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-1.02959 -0.270849 0 0 -0 0</pose>
+      <pose frame=''>-1.07347 0.281051 0 0 -0 0</pose>
     </model>
     <model name='soccer_ball_0'>
+      <static>0</static>
       <link name='soccer_ball_link'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
@@ -3060,10 +2921,26 @@
           </inertia>
           <pose frame=''>0 0 0 0 -0 0</pose>
         </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.04</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name='visual'>
           <geometry>
             <mesh>
@@ -3071,98 +2948,52 @@
               <uri>model://robocup_3Dsim_ball/meshes/ball.dae</uri>
             </mesh>
           </geometry>
-          <material>
-            <shader type='pixel'>
-              <normal_map>__default__</normal_map>
-            </shader>
-          </material>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <transparency>0</transparency>
-          <cast_shadows>1</cast_shadows>
         </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <sphere>
-              <radius>0.1</radius>
-            </sphere>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <fdir1>0 0 0</fdir1>
-                <slip1>0</slip1>
-                <slip2>0</slip2>
-              </ode>
-              <torsional>
-                <coefficient>1</coefficient>
-                <patch_radius>0</patch_radius>
-                <surface_radius>0</surface_radius>
-                <use_patch_radius>1</use_patch_radius>
-                <ode>
-                  <slip>0</slip>
-                </ode>
-              </torsional>
-            </friction>
-            <bounce>
-              <restitution_coefficient>0</restitution_coefficient>
-              <threshold>1e+06</threshold>
-            </bounce>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-              <collide_bitmask>1</collide_bitmask>
-              <ode>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-                <max_vel>0.01</max_vel>
-                <min_depth>0</min_depth>
-              </ode>
-              <bullet>
-                <split_impulse>1</split_impulse>
-                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-              </bullet>
-            </contact>
-          </surface>
-        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
       </link>
-      <static>0</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-1.52828 0.299225 0 0 -0 0</pose>
+      <pose frame=''>-1.41362 0.412805 0 0 -0 0</pose>
     </model>
-    <model name='RoboCup_SPL_Ball_0'>
+    <model name='RoboCup SPL Ball'>
+      <static>0</static>
       <link name='ball'>
         <inertial>
-          <mass>1e-06</mass>
+          <mass>0.0056</mass>
           <inertia>
-            <ixx>0</ixx>
-            <iyy>0</iyy>
-            <izz>0</izz>
+            <ixx>2.37e-06</ixx>
+            <iyy>2.37e-06</iyy>
+            <izz>2.37e-06</izz>
             <ixy>0</ixy>
             <ixz>0</ixz>
             <iyz>0</iyz>
           </inertia>
           <pose frame=''>0 0 0 0 -0 0</pose>
         </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <gravity>1</gravity>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.0325</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name='visual'>
           <geometry>
             <sphere>
-              <radius>0.065</radius>
+              <radius>0.0325</radius>
             </sphere>
           </geometry>
           <material>
@@ -3170,73 +3001,70 @@
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/RedBright</name>
             </script>
-            <shader type='pixel'>
-              <normal_map>__default__</normal_map>
-            </shader>
           </material>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <transparency>0</transparency>
-          <cast_shadows>1</cast_shadows>
         </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.10405 -0.006855 0 0 -0 0</pose>
+    </model>
+    <model name='RoboCup SPL Ball_0'>
+      <static>0</static>
+      <link name='ball'>
+        <inertial>
+          <mass>0.0056</mass>
+          <inertia>
+            <ixx>2.37e-06</ixx>
+            <iyy>2.37e-06</iyy>
+            <izz>2.37e-06</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
           <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
           <geometry>
             <sphere>
               <radius>0.0325</radius>
             </sphere>
           </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <fdir1>0 0 0</fdir1>
-                <slip1>0</slip1>
-                <slip2>0</slip2>
-              </ode>
-              <torsional>
-                <coefficient>1</coefficient>
-                <patch_radius>0</patch_radius>
-                <surface_radius>0</surface_radius>
-                <use_patch_radius>1</use_patch_radius>
-                <ode>
-                  <slip>0</slip>
-                </ode>
-              </torsional>
-            </friction>
-            <bounce>
-              <restitution_coefficient>0</restitution_coefficient>
-              <threshold>1e+06</threshold>
-            </bounce>
             <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-              <collide_bitmask>1</collide_bitmask>
-              <ode>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-                <max_vel>0.01</max_vel>
-                <min_depth>0</min_depth>
-              </ode>
-              <bullet>
-                <split_impulse>1</split_impulse>
-                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-              </bullet>
+              <ode/>
             </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode>
+                <mu>0.1</mu>
+                <mu2>0.4</mu2>
+              </ode>  
+            </friction>
           </surface>
         </collision>
+        <visual name='visual'>
+          <geometry>
+            <sphere>
+              <radius>0.0325</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/RedBright</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
       </link>
-      <static>0</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-1.57807 -0.250923 0 0 -0 0</pose>
+      <pose frame=''>-1.39207 0.120074 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>
