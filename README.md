@@ -8,7 +8,13 @@ Create a workspace:
     $ catkin_make
     
     $ cd src
+
+Add Dependencies:
+
+   tf2
     
+    $ sudo apt-get install ros-melodic-tf2-sensor-msgs
+   
 Add all Repositories:
 
     $ git clone https://github.com/sbhatti915/messibot.git
@@ -33,8 +39,6 @@ Add the workspace to your ROS environment:
     
 ## Usage
 Launch turtlebot in an empty world with:
-
-    $ export TURTLEBOT3_MODEL=waffle
     
-    $ roslaunch messibot empty_world.launch
+    $ roslaunch messibot field.launch
     
