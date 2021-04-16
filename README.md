@@ -33,8 +33,6 @@ Add the workspace to your ROS environment:
     
 ## Usage
 Launch turtlebot in an empty world with:
-
-    $ export TURTLEBOT3_MODEL=waffle
     
-    $ roslaunch messibot empty_world.launch
+    $ roslaunch messibot field.launch
     
