@@ -11,7 +11,7 @@ Create a workspace:
 
 Add Dependencies:
 
-    tf2
+   tf2
     
     $ sudo apt-get install ros-melodic-tf2-sensor-msgs
    
