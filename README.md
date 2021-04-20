@@ -38,7 +38,7 @@ Add the workspace to your ROS environment:
     $ . ~/catkin_ws/devel/setup.bash
     
 ## Usage
-Launch turtlebot in an empty world with:
+Launch messibot in an empty world with:
     
     $ roslaunch messibot field.launch
     
