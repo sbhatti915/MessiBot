@@ -1,3 +1,6 @@
+## Notes
+*Odometry is not very accurate
+
 ## Requirements
 Create a workspace:
 
