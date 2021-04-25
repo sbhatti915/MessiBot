@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from geometry_msgs.msg import Twist, Point
+from geometry_msgs.msg import Twist, Point, PoseWithCovarianceStamped
 from nav_msgs.msg import Odometry
 from math import pow, atan2, sqrt
 from tf.transformations import euler_from_quaternion
@@ -20,10 +20,10 @@ class messibot:
 
         # A subscriber to the topic '/four_wheel_steering_controller/odom'. self.update_pose is called
         # when a message of type Odometry is received.
-        self.pose_subscriber = rospy.Subscriber('/four_wheel_steering_controller/odom',
-                                                        Odometry, self.update_pose)
+        self.pose_subscriber = rospy.Subscriber('/amcl_pose',
+                                                        PoseWithCovarianceStamped, self.update_pose)
         
-        self.pose = Odometry
+        self.pose = PoseWithCovarianceStamped
         self.rate = rospy.Rate(200)
     
     def update_pose(self, data):
