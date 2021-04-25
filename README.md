@@ -18,14 +18,6 @@ Add Dependencies:
 Add all Repositories:
 
     $ git clone https://github.com/sbhatti915/messibot.git
-    
-    $ cd messibot
-    
-    $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
-    
-    $ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
-    
-    $ git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 
 Rebuild Packages:
 
@@ -38,7 +30,11 @@ Add the workspace to your ROS environment:
     $ . ~/catkin_ws/devel/setup.bash
     
 ## Usage
-Launch messibot in an empty world with:
+Launch messibot in the field with:
     
     $ roslaunch messibot field.launch
+    
+Add AMCL:
+
+    $ roslaunch navigation_params navigation.launch
     
