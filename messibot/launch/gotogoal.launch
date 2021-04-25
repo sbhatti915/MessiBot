@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="messibot" type="gotogoal.py" name="gotogoal"  output="screen">
+    </node>
+</launch>
