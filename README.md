@@ -1,4 +1,12 @@
+## Notes
+*Odometry is not very accurate
+
 ## Requirements
+Ubuntu 18.04
+
+ROS Melodic
+
+## Installation
 Create a workspace:
 
     $ mkdir -p catkin_ws/src
