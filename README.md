@@ -6,7 +6,7 @@ Ubuntu 18.04
 
 ROS Melodic
 
-%% Installation
+## Installation
 Create a workspace:
 
     $ mkdir -p catkin_ws/src
