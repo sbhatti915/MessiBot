@@ -1,5 +1,5 @@
 <launch>
-  <!-- Initial arguments -->
+    <!-- Initial arguments -->
   <arg name="model" default="$(find robot_description)/robots/fourth_robot.urdf.xacro"/>
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -27,7 +27,7 @@
     </node>
 
   <!-- launch commander node -->
-  <include file="$(find commander)/launch/commander.launch"/>
+  <node pkg="messibot" name="joymove" type="joystick_config.py" output="screen"/>
 
   <!-- Load the URDF into the ROS Parameter Server -->
   <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
