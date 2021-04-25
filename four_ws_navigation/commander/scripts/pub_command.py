@@ -21,12 +21,12 @@ def commander():
     head_angular_speed = 8
 
     pub = rospy.Publisher('/four_wheel_steering_controller/cmd_vel', Twist, queue_size = 10)
-    # pub_head = rospy.Publisher('/lidar_head_controller/command', Float64, queue_size = 10)
+    pub_head = rospy.Publisher('/lidar_head_controller/command', Float64, queue_size = 10)
     rate = rospy.Rate(50)
 
     while not rospy.is_shutdown():
         pub.publish(vel_msg)
-        # pub_head.publish(head_angular_speed)
+        pub_head.publish(head_angular_speed)
         rate.sleep()
 
 if __name__ == '__main__':
